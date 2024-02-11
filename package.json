@@ -1,0 +1,19 @@
+{
+  "name": "brief-2",
+  "version": "1.0.0",
+  "description": "Game \"Tape-Taupe\"",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch ./public/style/SASS/style.scss:./public/style/CSS/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M0orph3us/brief-2.git"
+  },
+  "author": "Gaël M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M0orph3us/brief-2/issues"
+  },
+  "homepage": "https://github.com/M0orph3us/brief-2#readme"
+}

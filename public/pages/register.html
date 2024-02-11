@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="My first game with HTML / CSS / JS" />
+    <link rel="stylesheet" type="text/css" href="../style/CSS/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <script type="module" src="../scripts/script.js" defer></script>
+    <title>Register</title>
+  </head>
+  <body>
+    <header id="header">
+      <h1>Welcome to Whack a Mole</h1>
+    </header>
+    <main class="registerContainer">
+      <form action="#" method="POST" id="registerForm">
+        <p id="returnRegister"></p>
+        <label for="pseudoRegister">Pseudo</label>
+        <input type="text" name="pseudoRegister" id="pseudoRegister" required />
+
+        <label for="passwordRegister">Password</label>
+        <input
+          type="password"
+          name="passwordRegister"
+          id="passwordRegister"
+          minlength="3"
+          placeholder="Minimum 3 characters"
+          required
+        />
+        <img
+          class="eyeCloseRegister"
+          id="eyeCloseRegister"
+          src="../assets/icons/eyeClose.svg"
+          alt="Go to password hidden"
+        />
+        <img
+          class="eyeOpenRegister"
+          id="eyeOpenRegister"
+          src="../assets/icons/eyeOpen.svg"
+          alt="Go to password visible"
+        />
+
+        <label for="verifyPasswordRegister">Verify Password</label>
+        <input
+          type="password"
+          name="verifyPasswordRegister"
+          id="verifyPasswordRegister"
+          minlength="3"
+          placeholder="Minimum 3 characters"
+          required
+        />
+        <img
+          class="eyeCloseRegisterVerify"
+          id="eyeCloseRegisterVerify"
+          src="../assets/icons/eyeClose.svg"
+          alt="Go to password hidden"
+        />
+        <img
+          class="eyeOpenRegisterVerify"
+          id="eyeOpenRegisterVerify"
+          src="../assets/icons/eyeOpen.svg"
+          alt="Go to password visible"
+        />
+        <input type="hidden" class="csrf" id="csrf" />
+        <button class="submitRegister" id="submitRegister">Register</button>
+      </form>
+    </main>
+    <footer>
+      <h1>Footer</h1>
+      <div class="leaderBoardFooter" id="leaderBoardFooter"></div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="My first game with HTML / CSS / JS" />
+    <link rel="stylesheet" type="text/css" href="../style/CSS/style.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <script type="module" src="../scripts/script.js" defer></script>
+    <title>Leader Board</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="navBar" id="navBar">
+        <ul>
+          <li id="gameLink"><a href="./game.html">Play</a></li>
+          <li id="leaderBoardLink">
+            <a href="#">LeaderBoard</a>
+          </li>
+        </ul>
+      </div>
+      <button class="logoutButtonIcon" id="logoutButtonIcon">
+        <img src="../assets/icons/logout.svg" alt="logout" />
+      </button>
+      <button class="logoutButton" id="logoutButton">Logout</button>
+    </header>
+    <main class="leaderBoardContainer">
+      <table class="leaderBoard" id="leaderBoard">
+        <thead>
+          <tr>
+            <th>Players</th>
+            <th>Best Score</th>
+            <th>Score recorded at</th>
+          </tr>
+        </thead>
+        <tbody id="usersScore"></tbody>
+      </table>
+    </main>
+    <footer>
+      <h1>Footer</h1>
+    </footer>
+  </body>
+</html>
