@@ -98,6 +98,7 @@ function register(e) {
 
   const userData = {
     password: password,
+    score: [],
   };
 
   const userDataStringify = JSON.stringify(userData);

@@ -148,6 +148,7 @@ header h1 {
 .logoutButton {
   display: none;
   visibility: hidden;
+  cursor: pointer;
 }
 
 /* MAIN */
@@ -352,6 +353,19 @@ footer {
   background-color: #975742;
 }
 
+.textLeaderboard {
+  color: lime;
+  overflow-x: hidden;
+}
+
+@keyframes leftToRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 /* RESPONSIVE DESKTOP */
 @media screen and (min-width: 1024px) {
   :root {

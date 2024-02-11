@@ -147,6 +147,7 @@ header {
  .logoutButton {
   display: none;
   visibility: hidden;
+  cursor: pointer;
  }
 
 /* MAIN */
@@ -340,6 +341,21 @@ footer {
   padding: 1rem;
   background-color: #975742;
  }
+
+ .textLeaderboard {
+  color: lime;
+  overflow-x: hidden; 
+  // animation: leftToRight 8s linear infinite;
+ }
+
+ @keyframes leftToRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%); 
+ }
+}
 
 /* RESPONSIVE DESKTOP */
 @media screen and (min-width: 1024px) {

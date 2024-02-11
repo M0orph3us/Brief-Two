@@ -16,6 +16,7 @@ for (let k = 0; k < localStorageData.length; k++) {
   const value = localStorage.getItem(user);
   const valueParse = JSON.parse(value);
   const score = valueParse.score;
+  const bestScore = Math.max(...score);
   const date = valueParse.createdAt;
-  scoreTarget.innerHTML += `<tr><td>${user}</td><td>${score}</td><td>${date}</td></tr>`;
+  scoreTarget.innerHTML += `<tr><td>${user}</td><td>${bestScore}</td><td>${date}</td></tr>`;
 }
