@@ -73,14 +73,14 @@ body {
 
 /* HEADER */
 header {
-  background-color: #975742;
+  background-color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6rem;
   padding: 1rem;
 }
 header h1 {
+  color: white;
   margin: auto;
 }
 
@@ -97,7 +97,7 @@ header h1 {
   text-transform: uppercase;
 }
 .navBar a {
-  color: black;
+  color: white;
 }
 .navBar a:hover {
   text-shadow: 2px 2px 3px lime;
@@ -215,12 +215,16 @@ main {
 /* GAME Page */
 /* cursor size max 36px 36px */
 .gameContainer {
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   cursor: url(/public/assets/imgs/hammerCursor.svg), pointer;
+}
+.gameContainer img {
+  margin: auto;
 }
 
 .hole1 {
@@ -261,13 +265,13 @@ main {
 
 /* ALERT ANIMATION */
 .alert {
-  color: black;
+  color: white;
   background-color: red;
   animation: alertAnimation 1s infinite;
 }
 
 .valid {
-  color: black;
+  color: white;
   background-color: lime;
 }
 
@@ -350,7 +354,7 @@ main {
 /* FOOTER */
 footer {
   padding: 1rem;
-  background-color: #975742;
+  background-color: black;
 }
 
 .textLeaderboard {

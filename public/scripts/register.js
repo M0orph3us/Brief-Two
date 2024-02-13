@@ -14,30 +14,31 @@ const verifyPasswordRegister = document.querySelector(
 const eyeCloseRegisterVerify = document.querySelector(
   "#eyeCloseRegisterVerify"
 );
+
 const eyeOpenRegisterVerify = document.querySelector("#eyeOpenRegisterVerify");
 
 // Function to show or hidden password
-eyeCloseRegister.addEventListener("click", () => {
-  passwordRegister.type = "text";
-  eyeCloseRegister.style.display = "none";
-  eyeOpenRegister.style.display = "block";
-});
-eyeOpenRegister.addEventListener("click", () => {
-  passwordRegister.type = "password";
-  eyeCloseRegister.style.display = "block";
-  eyeOpenRegister.style.display = "none";
-});
+// eyeCloseRegister.addEventListener("click", () => {
+//   passwordRegister.type = "text";
+//   eyeCloseRegister.style.display = "none";
+//   eyeOpenRegister.style.display = "block";
+// });
+// eyeOpenRegister.addEventListener("click", () => {
+//   passwordRegister.type = "password";
+//   eyeCloseRegister.style.display = "block";
+//   eyeOpenRegister.style.display = "none";
+// });
 
-eyeCloseRegisterVerify.addEventListener("click", () => {
-  verifyPasswordRegister.type = "text";
-  eyeCloseRegisterVerify.style.display = "none";
-  eyeOpenRegisterVerify.style.display = "block";
-});
-eyeOpenRegisterVerify.addEventListener("click", () => {
-  verifyPasswordRegister.type = "password";
-  eyeCloseRegisterVerify.style.display = "block";
-  eyeOpenRegisterVerify.style.display = "none";
-});
+// eyeCloseRegisterVerify.addEventListener("click", () => {
+//   verifyPasswordRegister.type = "text";
+//   eyeCloseRegisterVerify.style.display = "none";
+//   eyeOpenRegisterVerify.style.display = "block";
+// });
+// eyeOpenRegisterVerify.addEventListener("click", () => {
+//   verifyPasswordRegister.type = "password";
+//   eyeCloseRegisterVerify.style.display = "block";
+//   eyeOpenRegisterVerify.style.display = "none";
+// });
 
 // CSRF Token
 const randomValue = Math.random().toString(36).substring(2);
@@ -47,11 +48,13 @@ csrfTarget.value = randomValue;
 submitRegister.addEventListener("click", register);
 
 let time = 6;
+let interID;
 function timer() {
   time--;
   pTarget.textContent = `You are registered, you will be redirected to the login page in ${time} seconds`;
   if (time === 0) {
     window.location.href = "../index.html";
+    clearInterval(interID);
   }
 }
 
@@ -84,7 +87,7 @@ function register(e) {
       pTarget.classList.remove("alert");
       pTarget.classList.add("valid");
 
-      setInterval(timer, 1000);
+      interID = setInterval(timer, 1000);
     } else {
       pTarget.textContent = "";
       pTarget.classList.remove("valid");

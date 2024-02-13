@@ -1,5 +1,6 @@
 "use strict";
 
+// Logic for leaderboard on footer
 const textLeaderboard = document.querySelector("#textLeaderboard");
 const localStorageData = localStorage;
 for (let k = 0; k < localStorageData.length; k++) {

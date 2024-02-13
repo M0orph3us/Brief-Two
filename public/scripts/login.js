@@ -6,17 +6,17 @@ const eyeCloseIndex = document.querySelector("#eyeCloseIndex");
 const eyeOpenIndex = document.querySelector("#eyeOpenIndex");
 const passwordLogin = document.querySelector("#passwordLogin");
 
-eyeCloseIndex.addEventListener("click", () => {
-  passwordLogin.type = "text";
-  eyeCloseIndex.style.display = "none";
-  eyeOpenIndex.style.display = "block";
-});
+// eyeCloseIndex.addEventListener("click", () => {
+//   passwordLogin.type = "text";
+//   eyeCloseIndex.style.display = "none";
+//   eyeOpenIndex.style.display = "block";
+// });
 
-eyeOpenIndex.addEventListener("click", () => {
-  passwordLogin.type = "password";
-  eyeCloseIndex.style.display = "block";
-  eyeOpenIndex.style.display = "none";
-});
+// eyeOpenIndex.addEventListener("click", () => {
+//   passwordLogin.type = "password";
+//   eyeCloseIndex.style.display = "block";
+//   eyeOpenIndex.style.display = "none";
+// });
 
 submitLogin.addEventListener("click", login);
 
@@ -27,6 +27,7 @@ function login() {
   const storageGet = localStorage.getItem(pseudologinValue);
   const storageGetParse = JSON.parse(storageGet);
   const passwordStorage = storageGetParse.password;
+
   if (passwordLoginValue === passwordStorage && pseudologinValue !== "") {
     isConnected = true;
     paraTarget.textContent = "";
