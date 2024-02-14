@@ -2,15 +2,15 @@
 
 // Logic for leaderboard on footer
 const textLeaderboard = document.querySelector("#textLeaderboard");
-const localStorageData = localStorage;
-for (let k = 0; k < localStorageData.length; k++) {
-  const user = localStorage.key(k);
-  const value = localStorage.getItem(user);
-  const valueParse = JSON.parse(value);
-  const score = valueParse.score;
-  const bestScore = Math.max(...score);
-  textLeaderboard.textContent += `${user} : ${bestScore}pts; `;
-}
+
+// for (let k = 0; k < localStorage.length; k++) {
+//   const value = localStorage.getItem("score");
+//   const valueParse = JSON.parse(value);
+//   const score = valueParse.score;
+//   const pseudo = valueParse.pseudo;
+//   const bestScore = Math.max(...score);
+//   textLeaderboard.textContent += `${pseudo} : ${bestScore}pts; `;
+// }
 document.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname;
 

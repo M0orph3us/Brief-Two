@@ -63,6 +63,7 @@ a {
 body {
   display: grid;
   height: 100dvh;
+  width: 100vw;
   grid-template-rows: auto 1fr auto;
 }
 
@@ -106,7 +107,6 @@ header h1 {
 .loginContainer {
   width: 10rem;
   height: 10rem;
-  margin-right: 1rem;
 }
 .loginContainer form {
   display: flex;
@@ -134,7 +134,7 @@ header h1 {
 
 .logoutButtonIcon {
   visibility: visible;
-  border: 1px solid transparent;
+  border: 3px solid transparent;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
@@ -213,6 +213,24 @@ main {
   }
 }
 /* GAME Page */
+.gameBoard {
+  display: flex;
+  flex-direction: column;
+}
+
+.gameBoard label {
+  color: white;
+}
+
+.buttonStart {
+  border: 3px solid transparent;
+  margin-left: 2rem;
+}
+.buttonStart:hover {
+  border: 3px solid lime;
+  cursor: pointer;
+}
+
 /* cursor size max 36px 36px */
 .gameContainer {
   height: 100%;

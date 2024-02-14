@@ -28,63 +28,95 @@ function defaultCursor() {
   gameContainer.style.cursor =
     "url(/public/assets/imgs/hammerCursor.svg), pointer";
 }
-
-// gameContainer.removeEventListener("mouseup", clickHammer);
-
+// To have the current date
 const date = new Date();
-console.log(date.getDay());
+const day = date.getDate();
+const month = date.getMonth() + 1;
+const year = date.getFullYear();
 
+const currentDay = `${day}/${month}/${year}`;
+// Set timer to play
+let time = 10;
+let intervalID;
+let newScore = 600;
+
+const pseudo = "test";
+const getStorage = localStorage.getItem(pseudo);
+const getStorageParse = JSON.parse(getStorage);
+
+getArrayScore.push(newScore);
+
+const userData = {
+  pseudo: pseudo,
+  createdAt: currentDay,
+  score: getArrayScore,
+};
+
+const userDataStringify = JSON.stringify(userData);
+localStorage.setItem("score", userDataStringify);
+
+function timer() {
+  time--;
+  if (time === 0) {
+    clearInterval(intervalID);
+  }
+}
 // Logic for game
 
-const hole1Target = document.querySelector("#hole1");
-const hole2Target = document.querySelector("#hole2");
-const hole3Target = document.querySelector("#hole3");
-const hole4Target = document.querySelector("#hole4");
-const hole5Target = document.querySelector("#hole5");
-const hole6Target = document.querySelector("#hole6");
-const hole7Target = document.querySelector("#hole7");
-const hole8Target = document.querySelector("#hole8");
-const hole9Target = document.querySelector("#hole9");
+const holes = document.querySelectorAll("#hole");
 
-const arrayPositionHole = [
-  hole1Target,
-  hole2Target,
-  hole3Target,
-  hole4Target,
-  hole5Target,
-  hole6Target,
-  hole7Target,
-  hole8Target,
-  hole9Target,
-];
 const threeMole = "../assets/imgs/threeMole.svg";
 const kingMole = "../assets/imgs/kingMole.svg";
 const oneMole = "../assets/imgs/oneMole.svg";
 const arrayHardMole = [threeMole, kingMole, oneMole];
 const arrayMediumMole = [oneMole, threeMole];
 
-function positionRandom() {
-  const randomIndex = Math.floor(Math.random() * arrayPositionHole.length);
-  return arrayPositionHole[randomIndex];
-}
-function hardRandomMole() {
-  const randomIndex = Math.floor(Math.random() * arrayHardMole.length);
-  return arrayHardMole[randomIndex];
+function random(array) {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
 }
 
-function mediumRandomMole() {
-  const randomIndex = Math.floor(Math.random() * arrayMediumMole.length);
-  return arrayMediumMole[randomIndex];
-}
-
-function game() {
+function gameNormal() {
   const img = document.createElement("img");
-  img.style.position = "relative";
-  img.src = mediumRandomMole();
+  img.style.position = "absolute";
+  img.src = oneMole;
   img.alt = "mole";
-  positionRandom().appendChild(img);
+  random(holes).appendChild(img);
 }
 
-// setInterval(() => {
-//   game();
-// }, 2000);
+function gameMedium() {
+  const img = document.createElement("img");
+  img.style.position = "absolute";
+  img.src = random(arrayMediumMole);
+  img.alt = "mole";
+  random(holes).appendChild(img);
+}
+
+function gameHard() {
+  const img = document.createElement("img");
+  img.style.position = "absolute";
+  img.src = random(arrayHardMole);
+  img.alt = "mole";
+  random(holes).appendChild(img);
+}
+
+const buttonStart = document.querySelector("#buttonStart");
+
+buttonStart.addEventListener("click", gameStart);
+
+function gameStart() {
+  const difficultValue = document.querySelector("#mode").value;
+  if (difficultValue === "normal") {
+    setInterval(() => {
+      gameNormal();
+    }, 2000);
+  } else if (difficultValue === "medium") {
+    setInterval(() => {
+      gameMedium();
+    }, 2000);
+  } else if (difficultValue === "hard") {
+    setInterval(() => {
+      gameHard();
+    }, 1000);
+  }
+}

@@ -99,9 +99,20 @@ function register(e) {
     console.log("Dont try to hack my game !!!!");
   }
 
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  const currentDay = `${day}/${month}/${year}`;
+  const arrayScore = [];
   const userData = {
     password: password,
-    score: [],
+    createdAt: currentDay,
+    game: {
+      score: arrayScore,
+      doneOn: "",
+    },
   };
 
   const userDataStringify = JSON.stringify(userData);
