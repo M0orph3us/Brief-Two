@@ -231,7 +231,6 @@ main {
 }
 /* cursor size max 36px 36px */
 .gameContainer {
-  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -239,9 +238,15 @@ main {
   grid-row-gap: 0px;
   cursor: url(/public/assets/imgs/hammerCursor.svg), pointer;
   
-  img {
-    margin: auto;
-  }
+  
+}
+
+.gameContainer div {
+  margin: auto;
+}
+
+.gameContainer img {
+  width: 30%;
 }
 
 
@@ -367,14 +372,15 @@ footer {
  .textLeaderboard {
   color: lime;
   overflow-x: hidden; 
-  // animation: leftToRight 8s linear infinite;
+  white-space: nowrap;
+  // animation: rightToLeft 8s linear infinite;
  }
 
- @keyframes leftToRight {
-  0% {
+ @keyframes rightToLeft {
+  from {
     transform: translateX(100%);
   }
-  100% {
+  to {
     transform: translateX(-100%); 
  }
 }

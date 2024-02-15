@@ -7,9 +7,12 @@ for (let k = 0; k < localStorage.length; k++) {
   const user = localStorage.key(k);
   const getStorage = localStorage.getItem(user);
   const getStorageParse = JSON.parse(getStorage);
-  const getScore = getStorageParse.game[k].score;
-  const bestScore = Math.max(getScore);
-  textLeaderboard.textContent += `${user} : ${bestScore}pts; `;
+
+  if (getStorageParse.game.length > 0) {
+    const scores = getStorageParse.game.map((game) => game.score);
+    const maxScore = Math.max(...scores);
+    textLeaderboard.textContent += `${user} : ${maxScore}pts; `;
+  }
 }
 document.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname;
