@@ -1,3 +1,5 @@
+import { User } from "./class/User.js";
+
 const submitLogin = document.querySelector("#submitLogin");
 const paraTarget = document.querySelector("#loginAlert");
 let isConnected = false;
@@ -24,11 +26,12 @@ function login() {
   const pseudologinValue = document.querySelector("#pseudoLogin").value;
   const passwordLoginValue = passwordLogin.value;
 
-  const storageGet = localStorage.getItem(pseudologinValue);
-  const storageGetParse = JSON.parse(storageGet);
-  const passwordStorage = storageGetParse.password;
+  const userLogin = new User(pseudologinValue, passwordLoginValue);
 
-  if (passwordLoginValue === passwordStorage && pseudologinValue !== "") {
+  if (
+    passwordLoginValue === userLogin.getPassword() &&
+    pseudologinValue !== ""
+  ) {
     isConnected = true;
     paraTarget.textContent = "";
     paraTarget.classList.remove("alert");

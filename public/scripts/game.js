@@ -1,3 +1,5 @@
+import { Storage } from "./class/Storage.js";
+
 // Action on logout button
 const logoutButton = document.querySelector("#logoutButton");
 logoutButton.addEventListener(
@@ -28,39 +30,17 @@ function defaultCursor() {
   gameContainer.style.cursor =
     "url(/public/assets/imgs/hammerCursor.svg), pointer";
 }
-// To have the current date
-const date = new Date();
-const day = date.getDate();
-const month = date.getMonth() + 1;
-const year = date.getFullYear();
 
-const currentDay = `${day}/${month}/${year}`;
 // Set timer to play
-let time = 10;
+let time = 15;
 let intervalID;
-let newScore = 600;
-
-const pseudo = "test";
-const getStorage = localStorage.getItem(pseudo);
-const getStorageParse = JSON.parse(getStorage);
-
-getArrayScore.push(newScore);
-
-const userData = {
-  pseudo: pseudo,
-  createdAt: currentDay,
-  score: getArrayScore,
-};
-
-const userDataStringify = JSON.stringify(userData);
-localStorage.setItem("score", userDataStringify);
-
 function timer() {
   time--;
   if (time === 0) {
     clearInterval(intervalID);
   }
 }
+
 // Logic for game
 
 const holes = document.querySelectorAll("#hole");

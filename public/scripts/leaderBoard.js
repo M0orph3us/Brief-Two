@@ -14,13 +14,26 @@ logoutButtonIcon.addEventListener(
 
 // Logic for leaderBoard
 const scoreTarget = document.querySelector("#usersScore");
-const localStorageData = localStorage;
-for (let k = 0; k < localStorageData.length; k++) {
+let bestPlayer = null;
+let highestScore = 0;
+
+for (let k = 0; k < localStorage.length; k++) {
   const user = localStorage.key(k);
-  const value = localStorage.getItem(user);
-  const valueParse = JSON.parse(value);
-  const score = valueParse.score;
-  const bestScore = Math.max(...score);
-  const date = valueParse.createdAt;
-  scoreTarget.innerHTML += `<tr><td>${user}</td><td>${bestScore}</td><td>${date}</td></tr>`;
+  const getStorage = localStorage.getItem(user);
+  const getStorageParse = JSON.parse(getStorage);
+
+  if (getStorageParse.game.length > 0) {
+    const scores = getStorageParse.game.map((game) => game.score);
+    const maxScore = Math.max(...scores);
+
+    if (maxScore > highestScore) {
+      highestScore = maxScore;
+      bestPlayer = user;
+    }
+
+    const bestScoreIndex = scores.indexOf(maxScore);
+    const bestScoreDate = getStorageParse.game[bestScoreIndex].recordedAt;
+
+    scoreTarget.innerHTML += `<tr><td>${user}</td><td>${maxScore}</td><td>${bestScoreDate}</td></tr>`;
+  }
 }

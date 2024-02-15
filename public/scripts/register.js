@@ -1,3 +1,5 @@
+import { User } from "./class/User.js";
+
 const submitRegister = document.querySelector("#submitRegister");
 const pTarget = document.querySelector("#returnRegister");
 const csrfTarget = document.querySelector("#csrf");
@@ -51,7 +53,7 @@ let time = 6;
 let interID;
 function timer() {
   time--;
-  pTarget.textContent = `You are registered, you will be redirected to the login page in ${time} seconds`;
+  pTarget.textContent = ` Welcome ${pseudoRegisterValue} you're registered, you will be redirected to the login page in ${time} seconds`;
   if (time === 0) {
     window.location.href = "../index.html";
     clearInterval(interID);
@@ -72,6 +74,7 @@ function register(e) {
       pTarget.classList.remove("valid");
       pTarget.classList.add("alert");
       pTarget.textContent = "Your pseudo can't be empty";
+      return;
     } else if (
       passwordRegisterValue.length < 3 ||
       verifyPasswordRegisterValue.length < 3
@@ -80,6 +83,14 @@ function register(e) {
       pTarget.classList.remove("valid");
       pTarget.classList.add("alert");
       pTarget.textContent = "Your password must have more than 3 characters";
+      return;
+    } else if (passwordRegisterValue !== verifyPasswordRegisterValue) {
+      pTarget.textContent = "";
+      pTarget.classList.remove("valid");
+      pTarget.classList.add("alert");
+      pTarget.textContent =
+        "Your second password does not match with the first, try again please";
+      return;
     } else if (passwordRegisterValue === verifyPasswordRegisterValue) {
       password = passwordRegisterValue;
 
@@ -87,35 +98,11 @@ function register(e) {
       pTarget.classList.remove("alert");
       pTarget.classList.add("valid");
 
+      const newUser = new User(pseudoRegisterValue, password);
+      newUser.register();
       interID = setInterval(timer, 1000);
-    } else {
-      pTarget.textContent = "";
-      pTarget.classList.remove("valid");
-      pTarget.classList.add("alert");
-      pTarget.textContent =
-        "Your second password does not match with the first, try again please";
     }
   } else {
     console.log("Dont try to hack my game !!!!");
   }
-
-  const date = new Date();
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-
-  const currentDay = `${day}/${month}/${year}`;
-  const arrayScore = [];
-  const userData = {
-    password: password,
-    createdAt: currentDay,
-    game: {
-      score: arrayScore,
-      doneOn: "",
-    },
-  };
-
-  const userDataStringify = JSON.stringify(userData);
-
-  localStorage.setItem(pseudoRegisterValue, userDataStringify);
 }
