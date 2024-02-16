@@ -31,11 +31,12 @@ function defaultCursor() {
 
 // Set timer to play
 let time = 15;
-let intervalID;
 function timer() {
   time--;
   if (time === 0) {
     clearInterval(intervalID);
+    const setScore = new Storage(pseudo, score);
+    setScore.setScore();
   }
 }
 
@@ -51,8 +52,19 @@ const arrayMediumMole = [oneMole, threeMole];
 
 let score = null;
 const scoreTarget = document.querySelector("#score");
-scoreTarget.textContent = score;
+const timeTarget = document.querySelector("#time");
 
+function clickOnMole() {
+  const mole = document.querySelector("#mole");
+  mole.addEventListener("click", () => {
+    score += 1;
+    mole.style.display = "none";
+    scoreTarget.textContent = score;
+    timeTarget.textContent = time;
+
+    console.log(score);
+  });
+}
 function random(array) {
   const randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
@@ -60,27 +72,35 @@ function random(array) {
 
 function gameNormal() {
   const img = document.createElement("img");
-  img.style.position = "absolute";
+  img.classList.add("mole");
   img.src = oneMole;
   img.alt = "mole";
+  img.id = "mole";
   random(holes).appendChild(img);
+  clickOnMole();
+  // const intervalID = setInterval(() => {
+  //   timer();
+  // }, 1000);
 }
 
 function gameMedium() {
   const img = document.createElement("img");
-  img.style.position = "relative";
+  img.classList.add("mole");
   img.src = random(arrayMediumMole);
   img.alt = "mole";
+  img.id = "mole";
   random(holes).appendChild(img);
+  clickOnMole();
 }
 
 function gameHard() {
   const img = document.createElement("img");
-  img.style.position = "absolute";
+  img.classList.add("mole");
   img.src = random(arrayHardMole);
-  img.style.width = "10%";
   img.alt = "mole";
+  img.id = "mole";
   random(holes).appendChild(img);
+  clickOnMole();
 }
 
 const buttonStart = document.querySelector("#buttonStart");
