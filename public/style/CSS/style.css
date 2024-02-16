@@ -67,12 +67,12 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-/* RESPONSIVE TABLET */
+/*////////////////////////////////////RESPONSIVE TABLET 768px////////////////////////////////////////////*/
 :root {
   font-size: 20px;
 }
 
-/* HEADER */
+/*////////////////////////////////////HEADER////////////////////////////////////////////*/
 header {
   background-color: black;
   display: flex;
@@ -151,7 +151,7 @@ header h1 {
   cursor: pointer;
 }
 
-/* MAIN */
+/*////////////////////////////////////MAIN////////////////////////////////////////////*/
 main {
   padding: 1rem;
   background-color: #362222;
@@ -186,7 +186,7 @@ main {
   cursor: pointer;
 }
 
-/* LEADERBOARD Page */
+/* LEADERBOARD PAGE */
 .leaderBoardContainer {
   display: flex;
   justify-content: center;
@@ -213,6 +213,10 @@ main {
   }
 }
 /* GAME Page */
+.menuGame {
+  text-align: center;
+}
+
 .gameBoard {
   display: flex;
   flex-direction: column;
@@ -237,16 +241,14 @@ main {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-row-gap: 120px;
   cursor: url(/public/assets/imgs/hammerCursor.svg), pointer;
+  margin-top: 10%;
 }
 
 .gameContainer div {
+  width: 40%;
   margin: auto;
-}
-
-.gameContainer img {
-  width: 30%;
 }
 
 .hole1 {
@@ -308,7 +310,7 @@ main {
     box-shadow: 0 0 0 0 #888888;
   }
 }
-/*  REGISTER page */
+/*  REGISTER PAGE */
 .registerContainer {
   display: flex;
   justify-content: center;
@@ -373,7 +375,7 @@ main {
   cursor: pointer;
 }
 
-/* FOOTER */
+/*////////////////////////////////////FOOTER////////////////////////////////////////////*/
 footer {
   padding: 1rem;
   background-color: black;
@@ -393,7 +395,7 @@ footer {
     transform: translateX(-100%);
   }
 }
-/* RESPONSIVE DESKTOP */
+/*////////////////////////////////////RESPONSIVE DESKTOP////////////////////////////////////////////*/
 @media screen and (min-width: 1024px) {
   :root {
     font-size: 16px;
@@ -413,13 +415,17 @@ footer {
     display: block;
     margin-right: 1rem;
     visibility: visible;
+    border: 3px solid transparent;
+  }
+  .logoutButton:hover {
+    border: 3px solid lime;
   }
   .logoutButtonIcon {
     display: none;
     visibility: hidden;
   }
-  .gameContainer div {
-    margin: auto;
+  .gameContainer {
+    margin-top: 5%;
   }
 }
 

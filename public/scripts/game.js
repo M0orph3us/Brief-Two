@@ -66,7 +66,7 @@ function gameNormal() {
 
 function gameMedium() {
   const img = document.createElement("img");
-  img.style.position = "absolute";
+  img.style.position = "relative";
   img.src = random(arrayMediumMole);
   img.alt = "mole";
   random(holes).appendChild(img);
@@ -76,6 +76,7 @@ function gameHard() {
   const img = document.createElement("img");
   img.style.position = "absolute";
   img.src = random(arrayHardMole);
+  img.style.width = "10%";
   img.alt = "mole";
   random(holes).appendChild(img);
 }
