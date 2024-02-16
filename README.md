@@ -2,16 +2,16 @@
 
 ## Description
 
-"Tap Taupe" is a simple and fun web game where players need to tap on randomly appearing moles to earn points. The game features three difficulty levels, a time-limited gameplay, and a leaderboard to track the highest scorers.
+"Tap Taupe" is a simple and fun web game where players need to tap on randomly appearing moles to earn points. The game features three difficulty levels and a leaderboard to track the highest scorers.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Demo](#demo)
-- [Getting Started](#getting-started)
-- [How to Play](#how-to-play)
-- [Leaderboard](#leaderboard)
-- [Responsive Design](#responsive-design)
+- [Features]
+- [Demo]
+- [Getting Started]
+- [How to Play]
+- [Leaderboard]
+- [Responsive Design])
 
 ## Features
 
@@ -47,6 +47,6 @@ Visit the leaderboard section to see the top players and their scores.
 
 ## Responsive Design
 
-"Tap Taupe" is designed to be playable on various devices, ensuring a seamless gaming experience.
+"Tap Taupe" is designed to be playable on tablet 768px and desktop 1024px, ensuring a seamless gaming experience.
 
 ---

@@ -18,7 +18,6 @@ const gameContainer = document.querySelector("#gameContainer");
 gameContainer.addEventListener("mousedown", clickHammer);
 
 function clickHammer() {
-  console.log("down");
   gameContainer.style.cursor =
     "url(/public/assets/imgs/hammerCursorOnClick.svg), pointer";
 }
@@ -26,7 +25,6 @@ function clickHammer() {
 gameContainer.addEventListener("mouseup", defaultCursor);
 
 function defaultCursor() {
-  console.log("up");
   gameContainer.style.cursor =
     "url(/public/assets/imgs/hammerCursor.svg), pointer";
 }
@@ -50,6 +48,10 @@ const kingMole = "../assets/imgs/kingMole.svg";
 const oneMole = "../assets/imgs/oneMole.svg";
 const arrayHardMole = [threeMole, kingMole, oneMole];
 const arrayMediumMole = [oneMole, threeMole];
+
+let score = null;
+const scoreTarget = document.querySelector("#score");
+scoreTarget.textContent = score;
 
 function random(array) {
   const randomIndex = Math.floor(Math.random() * array.length);
@@ -90,14 +92,14 @@ function gameStart() {
   if (difficultValue === "normal") {
     setInterval(() => {
       gameNormal();
-    }, 2000);
+    }, 5000);
   } else if (difficultValue === "medium") {
     setInterval(() => {
       gameMedium();
-    }, 2000);
+    }, 4000);
   } else if (difficultValue === "hard") {
     setInterval(() => {
       gameHard();
-    }, 1000);
+    }, 2000);
   }
 }
